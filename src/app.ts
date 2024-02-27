@@ -5,28 +5,19 @@ function showHello(divName: string, name: string) {
     elt!.innerText = `Hello from ${name}`;
 }
 
-// Створіть класи Circle, Rectangle, Square і Triangle.
-//     У кожного з них є загальнодоступний метод calculateArea.
-//     У кожної фігури є загальнодоступні властивості - колір і назва,
-//     які не можна змінювати після створення.
-//     У Square і Rectangle зі свого боку є ще додатковий метод print,
-//     який виводить рядок із формулою розрахунку площі
-
 class Shape {
-    public readonly color: string;
-    public readonly name: string;
-
-    constructor(color: string, name: string) {
-        this.color = color;
-        this.name = name;
+    constructor(
+        public color: string,
+        public name: string
+    ) {
     }
     protected static shapeInfo(info: string): string {
-        return `Information about this shape - ${info}`
+        return `Information about this shape - ${info}`;
     }
 }
 
 class Circle extends Shape {
-    private readonly radius: number;
+    private radius: number;
 
     constructor(color: string, name: string, radius: number) {
         super(color, name);
@@ -39,9 +30,13 @@ class Circle extends Shape {
     }
 }
 
+const ball = new Circle('blue', 'SuperBall', 20);
+console.log(ball.name);
+console.log(ball.calculateArea());
+
 class Rectangle extends Shape {
-    private readonly length: number;
-    private readonly width: number;
+    private length: number;
+    private width: number;
 
     constructor(color: string, name: string, length: number, width: number) {
         super(color, name);
@@ -60,7 +55,7 @@ class Rectangle extends Shape {
 }
 
 class Square extends Shape {
-    private readonly side: number;
+    private side: number;
 
     constructor(color: string, name: string, side: number) {
         super(color, name);
@@ -78,8 +73,8 @@ class Square extends Shape {
 }
 
 class Triangle extends Shape {
-    private readonly base: number;
-    private readonly height: number;
+    private base: number;
+    private height: number;
 
     constructor(color: string, name: string, base: number, height: number) {
         super(color, name);
