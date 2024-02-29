@@ -5,7 +5,7 @@ function showHello(divName: string, name: string) {
     elt!.innerText = `Hello from ${name}`;
 }
 
-class Shape {
+abstract class Shape {
     constructor(
         public color: string,
         public name: string
@@ -17,11 +17,8 @@ class Shape {
 }
 
 class Circle extends Shape {
-    private radius: number;
-
-    constructor(color: string, name: string, radius: number) {
+    constructor(color: string, name: string, private radius: number) {
         super(color, name);
-        this.radius = radius;
     }
 
     calculateArea(): string {
@@ -35,13 +32,8 @@ console.log(ball.name);
 console.log(ball.calculateArea());
 
 class Rectangle extends Shape {
-    private length: number;
-    private width: number;
-
-    constructor(color: string, name: string, length: number, width: number) {
+    constructor(color: string, name: string, private length: number, private width: number) {
         super(color, name);
-        this.length = length;
-        this.width = width;
     }
 
     calculateArea(): string {
@@ -55,11 +47,9 @@ class Rectangle extends Shape {
 }
 
 class Square extends Shape {
-    private side: number;
 
-    constructor(color: string, name: string, side: number) {
+    constructor(color: string, name: string, private side: number) {
         super(color, name);
-        this.side = side;
     }
 
     calculateArea(): string {
@@ -73,13 +63,9 @@ class Square extends Shape {
 }
 
 class Triangle extends Shape {
-    private base: number;
-    private height: number;
 
-    constructor(color: string, name: string, base: number, height: number) {
+    constructor(color: string, name: string, private base: number, private height: number) {
         super(color, name);
-        this.base = base;
-        this.height = height;
     }
 
     calculateArea(): string {
